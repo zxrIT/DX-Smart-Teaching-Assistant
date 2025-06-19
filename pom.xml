@@ -2,20 +2,47 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    <parent>
-        <groupId>org.springframework.boot</groupId>
-        <artifactId>spring-boot-starter-parent</artifactId>
-        <version>3.5.0</version>
-        <relativePath/>
-    </parent>
     <groupId>cn.dx.smart.teaching.assistant</groupId>
     <artifactId>DX-Smart-Teaching-Assistant</artifactId>
     <version>0.0.1-SNAPSHOT</version>
+    <packaging>pom</packaging>
     <name>DX-Smart-Teaching-Assistant</name>
     <description>DX-Smart-Teaching-Assistant</description>
+    <modules>
+        <module>Common</module>
+        <module>Common/Common-Data</module>
+        <module>Common/Common-RabbitMQ</module>
+        <module>Common/Common-Utils</module>
+        <module>Common/Common-Component</module>
+        <module>GatewayService</module>
+        <module>AuthenticationService</module>
+        <module>Common/Common-Radis</module>
+    </modules>
     <properties>
-        <java.version>17</java.version>
+        <maven.compiler.source>17</maven.compiler.source>
+        <maven.compiler.target>17</maven.compiler.target>
+        <spring-boot.version>3.2.0</spring-boot.version>
+        <spring-cloud.version>2023.0.0</spring-cloud.version>
+        <spring-cloud-alibaba.version>2022.0.0.0</spring-cloud-alibaba.version>
+        <mybites-plus.version>3.5.6</mybites-plus.version>
+        <commons-pool2.version>2.11.1</commons-pool2.version>
+        <mysql-connection-j.version>8.0.33</mysql-connection-j.version>
+        <hutool-all.version>5.8.22</hutool-all.version>
+        <jjwt.version>0.12.4</jjwt.version>
+        <dynamic-datasource-spring-boot3-starter.version>4.1.0</dynamic-datasource-spring-boot3-starter.version>
+        <spring-cloud-starter-bootstrap.version>4.0.0</spring-cloud-starter-bootstrap.version>
+        <netty-resolver-dns-native-macos.version>4.2.0.Alpha5</netty-resolver-dns-native-macos.version>
+        <springdoc-openapi-starter-webmvc-ui.version>2.3.0</springdoc-openapi-starter-webmvc-ui.version>
+        <jbcrypt.version>0.4</jbcrypt.version>
+        <fastjson2.version>2.0.53</fastjson2.version>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>3.2.0</version>
+        <relativePath/>
+    </parent>
     <dependencies>
         <dependency>
             <groupId>org.projectlombok</groupId>
@@ -27,25 +54,24 @@
             <dependency>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-dependencies</artifactId>
-                <version>3.5.0</version>
+                <version>${spring-boot.version}</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
             <dependency>
                 <groupId>org.springframework.cloud</groupId>
                 <artifactId>spring-cloud-dependencies</artifactId>
-                <version>2023.0.3</version>
+                <version>${spring-cloud.version}</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
             <dependency>
                 <groupId>com.alibaba.cloud</groupId>
                 <artifactId>spring-cloud-alibaba-dependencies</artifactId>
-                <version>2023.0.1.2</version>
+                <version>${spring-cloud-alibaba.version}</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
         </dependencies>
     </dependencyManagement>
-
 </project>

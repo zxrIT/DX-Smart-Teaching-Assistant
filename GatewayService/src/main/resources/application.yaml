@@ -1,0 +1,14 @@
+spring:
+  cloud:
+    gateway:
+      routes:
+dx:
+  smart:
+    teaching:
+      assistant:
+        auth:
+          excludePaths:
+            - /authentication/**
+logging:
+  level:
+    org.springframework.cloud.gateway: debug

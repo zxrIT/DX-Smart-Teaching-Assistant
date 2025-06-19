@@ -1,8 +1,10 @@
-HELP.md
 target/
 .mvn/wrapper/maven-wrapper.jar
 !**/src/main/**/target/
 !**/src/test/**/target/
+*.class
+*.jar
+*.war
 
 ### STS ###
 .apt_generated
@@ -31,3 +33,27 @@ build/
 
 ### VS Code ###
 .vscode/
+
+# 开发工具
+.idea/
+*.swp
+*.swo
+
+# 环境配置（含敏感信息的本地配置）
+application-local.properties
+application-dev.yml
+config/application.yml
+
+# 系统文件
+.DS_Store
+Thumbs.db
+
+# 日志和测试
+logs/
+*.log
+surefire-reports/
+jacoco.exec
+
+# 依赖缓存
+.m2/repository/
+.gradle/

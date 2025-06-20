@@ -26,7 +26,7 @@
 
 其他 SpringAI + Seata
 
-系统架构描述图
+技术架构图
 ![截屏2025-06-20 18 18 30](https://github.com/user-attachments/assets/554e7889-c09f-4820-9076-619de6e13831)
 
 

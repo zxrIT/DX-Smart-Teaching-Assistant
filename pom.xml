@@ -16,7 +16,7 @@
         <module>Common/Common-Component</module>
         <module>GatewayService</module>
         <module>AuthenticationService</module>
-        <module>Common/Common-Radis</module>
+        <module>Common/Common-Redis</module>
     </modules>
     <properties>
         <maven.compiler.source>17</maven.compiler.source>

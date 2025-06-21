@@ -17,6 +17,7 @@
         <module>GatewayService</module>
         <module>AuthenticationService</module>
         <module>Common/Common-Redis</module>
+        <module>TalentTrainingService</module>
     </modules>
     <properties>
         <maven.compiler.source>17</maven.compiler.source>

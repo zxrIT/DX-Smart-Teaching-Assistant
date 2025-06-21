@@ -9,20 +9,35 @@ create table training_talents
     graduation_credit             double comment '毕业学分'                                 not null,
     object_enrollment             varchar(64) comment '招生对象' default '全日制高中毕业生' not null,
     professional_orientation      text comment '专业定位'                                   not null,
-    objectives_training           text comment '培养目标'                                   not null,
-    objectives_training_target_id varchar(255) comment '毕业5年预期ID'                      not null,
-    graduation_requirements_id    varchar(255) comment '毕业要求ID'                         not null
+    objectives_training           text comment '培养目标'                                   not null
 ) default char set 'utf8mb4' comment '人才培养方案表';
 
 create table objectives_training_target
 (
-    id             varchar(255) comment '毕业5年预期ID' primary key,
-    expectations_1 text comment '预期1' not null,
-    expectations_2 text comment '预期2' not null,
-    expectations_3 text comment '预期3' not null,
-    expectations_4 text comment '预期4' not null,
-    expectations_5 text comment '预期5' not null
+    objectives_training_target_id              varchar(255) comment '毕业5年预期ID' primary key,
+    target  text comment '目标' not null,
+    training_talent_id  varchar(255) comment '人才培养方案唯一ID',
+    index idx_training_talent_id (training_talent_id),
+    serial smallint comment '目标序号' not null
 ) default char set 'utf8mb4' comment '毕业5年预期表';
+
+create table graduation_requirement
+(
+    graduation_requirement_id              varchar(255) comment '毕业要求ID' primary key,
+    requirement  text comment '要求' not null,
+    serial smallint comment '要求序号' not null,
+    training_talent_id  varchar(255) comment '人才培养方案唯一ID',
+    index idx_training_talent_id (training_talent_id)
+) default char set 'utf8mb4' comment '毕业要求表';
+
+create table graduation_requirement_details
+(
+    graduation_requirement_details_id              varchar(255) comment '毕业要求细则ID' primary key,
+    requirement  text comment '要求细则' not null,
+    serial smallint comment '细则序号' not null,
+    graduation_requirement_id              varchar(255) comment '毕业要求ID',
+    index graduation_requirement_id (graduation_requirement_id)
+) default char set 'utf8mb4' comment '毕业要求细则表';
 
 create database dx_smart_user default char set 'utf8mb4';
 

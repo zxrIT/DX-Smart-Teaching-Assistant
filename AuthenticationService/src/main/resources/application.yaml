@@ -1,9 +1,4 @@
 spring:
-  security:
-    oauth2:
-      resourceserver:
-        jwt:
-          issuer-uri: http://authentication-service
   datasource:
     dynamic:
       primary: master_user
@@ -14,6 +9,9 @@ spring:
           password: root1234
           url: jdbc:mysql://127.0.0.1/student_course_select?characterEncoding=UTF-8&serverTimezone=Asia/Shanghai
           driver-class-name: com.mysql.cj.jdbc.Driver
+mybatis-plus:
+  configuration:
+    map-underscore-to-camel-case: true
 jwt:
   secret: dx-smart-teaching-assiatant-secret
   expiration: 86400000

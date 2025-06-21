@@ -1,4 +1,4 @@
-package com.common.data.base;
+package com.common.data.base.entity;
 
 import lombok.Data;
 

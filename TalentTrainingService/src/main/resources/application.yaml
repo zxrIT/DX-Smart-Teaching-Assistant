@@ -1,0 +1,14 @@
+spring:
+  datasource:
+    dynamic:
+      primary: master_training_talents
+      strict: false
+      datasource:
+        master_training_talents:
+          username: root
+          password: root1234
+          url: jdbc:mysql://127.0.0.1/dx_smart_training_talents?characterEncoding=UTF-8&serverTimezone=Asia/Shanghai
+          driver-class-name: com.mysql.cj.jdbc.Driver
+mybatis-plus:
+  configuration:
+    map-underscore-to-camel-case: true

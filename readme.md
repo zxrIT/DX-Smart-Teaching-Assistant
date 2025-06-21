@@ -27,8 +27,7 @@
 其他 SpringAI + Seata
 
 技术架构图
-![截屏2025-06-20 18 18 30](https://github.com/user-attachments/assets/554e7889-c09f-4820-9076-619de6e13831)
-
+![截屏2025-06-20 18 18 30](https://github.com/user-attachments/assets/6b930de8-a4ac-4c90-bd78-aa9232fc547b)
 
 #### 3.1.1数据库总体架构设计
 

@@ -1,0 +1,36 @@
+version: '3.8'
+services:
+  elasticsearch:
+    image: elasticsearch:7.17.9
+    ports:
+      - "9200:9200"
+      - "9300:9300"
+    environment:
+      - discovery.type=single-node
+      - ES_JAVA_OPTS=-Xms2g -Xmx2g
+    networks:
+      - elk-net
+
+  kibana:
+    image: kibana:7.17.9
+    ports:
+      - "5601:5601"
+    depends_on:
+      - elasticsearch
+    networks:
+      - elk-net
+
+  logstash:
+    image: logstash:7.17.9
+    ports:
+      - "4560:4560"
+    volumes:
+      - ./logstash.conf:/usr/share/logstash/pipeline/logstash.conf
+    depends_on:
+      - elasticsearch
+    networks:
+      - elk-net
+
+networks:
+  elk-net:
+    driver: bridge

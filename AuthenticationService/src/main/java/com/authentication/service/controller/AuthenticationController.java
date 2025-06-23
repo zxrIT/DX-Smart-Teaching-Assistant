@@ -1,5 +1,6 @@
 package com.authentication.service.controller;
 
+import com.authentication.service.request.LoginParam;
 import com.authentication.service.service.AuthenticationService;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
@@ -15,8 +16,13 @@ public class AuthenticationController {
     @Autowired
     private final AuthenticationService authenticationService;
 
-    @GetMapping("/login/{string}")
-    public String login(@PathVariable String string) {
-        return "11";
+    @GetMapping("/getEncryptionPassword/{password}")
+    public String getEncryptionPassword(@PathVariable String password) {
+        return authenticationService.getEncryptionPassword(password);
+    }
+
+    @PostMapping("/login")
+    public String login(@RequestBody LoginParam loginParam) {
+        return authenticationService.authenticate(loginParam.getAccount(), loginParam.getPassword());
     }
 }

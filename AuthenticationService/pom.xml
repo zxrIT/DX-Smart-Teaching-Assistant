@@ -73,6 +73,12 @@
         </dependency>
         <dependency>
             <groupId>cn.dx.smart.teaching.assistant</groupId>
+            <artifactId>Common-Redis</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>cn.dx.smart.teaching.assistant</groupId>
             <artifactId>Common-Component</artifactId>
             <version>0.0.1-SNAPSHOT</version>
             <scope>compile</scope>

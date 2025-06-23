@@ -1,5 +1,6 @@
 package com.common.data.authentication.entity;
 
+import com.common.data.base.entity.UserRole;
 import lombok.Data;
 
 import java.util.ArrayList;
@@ -13,12 +14,12 @@ public class Role {
     public Boolean update;
     public Boolean delete;
 
-    public List<String> getPermissions() {
-        List<String> permissions = new ArrayList<>();
-        if (Boolean.TRUE.equals(read)) permissions.add("read");
-        if (Boolean.TRUE.equals(write)) permissions.add("write");
-        if (Boolean.TRUE.equals(update)) permissions.add("update");
-        if (Boolean.TRUE.equals(delete)) permissions.add("delete");
+    public List<UserRole> getPermissions() {
+        List<UserRole> permissions = new ArrayList<>();
+        if (Boolean.TRUE.equals(read)) permissions.add(UserRole.READ);
+        if (Boolean.TRUE.equals(write)) permissions.add(UserRole.WRITE);
+        if (Boolean.TRUE.equals(update)) permissions.add(UserRole.UPDATE);
+        if (Boolean.TRUE.equals(delete)) permissions.add(UserRole.DELETE);
         return permissions;
     }
 }

@@ -21,6 +21,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 @Service
 @SuppressWarnings("all")
@@ -34,7 +35,7 @@ public class AuthenticationServiceImpl implements AuthenticationService {
     private final TokenManager tokenManager;
 
     @Override
-    public String getEncryptionPassword(String password) {
+    public String getEncryptionPassword(String password) throws RuntimeException {
         try {
             return JsonSerialization.toJson(new BaseResponse<String>(
                     BaseResponseContent.SUCCESS_CODE, BaseResponseContent.SUCCESS_MESSAGE, Encryption.encryptToMd5(password)
@@ -61,13 +62,26 @@ public class AuthenticationServiceImpl implements AuthenticationService {
             )).getPermissions();
             String userToken = tokenManager.createToken(userAuthentication.getUserId(), userAuthentication.getUserName()
                     , userAuthentication.getRole(), permissions);
-            redisService.setString(RedisAuthenticationConstant.redisAuthenticationKey + userAuthentication.account, userToken,
-                    RedisAuthenticationConstant.redisAuthenticationExpire);
+            redisService.setString(RedisAuthenticationConstant.redisAuthenticationKey + userAuthentication.getUserId(), userToken,
+                    RedisAuthenticationConstant.redisAuthenticationExpire, TimeUnit.SECONDS);
             return JsonSerialization.toJson(new BaseResponse<String>(
                     BaseResponseContent.SUCCESS_CODE, BaseResponseContent.SUCCESS_MESSAGE, "登录成功"
             ));
         } catch (Exception exception) {
             throw new AuthenticateException(exception.getMessage());
+        }
+    }
+
+    @Override
+    @DSTransactional(rollbackFor = Exception.class)
+    public String logout(String account) throws RuntimeException {
+        try {
+            redisService.removeString(RedisAuthenticationConstant.redisAuthenticationKey + account);
+            return JsonSerialization.toJson(new BaseResponse<String>(
+                    BaseResponseContent.SUCCESS_CODE, BaseResponseContent.SUCCESS_MESSAGE, "退出成功"
+            ));
+        } catch (Exception exception) {
+            throw new RuntimeException(exception.getMessage());
         }
     }
 }

@@ -5,5 +5,5 @@ import lombok.Data;
 @Data
 public class RedisAuthenticationConstant {
     public final static String redisAuthenticationKey = "DX:Smart:Teaching:Assistant:token:";
-    public final static Integer redisAuthenticationExpire = 1000 * 60 * 60;
+    public final static Integer redisAuthenticationExpire = 60 * 60;
 }

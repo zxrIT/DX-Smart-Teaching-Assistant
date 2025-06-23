@@ -1,4 +1,10 @@
 spring:
+  rabbitmq:
+    host: 127.0.0.1
+    port: 5672
+    username: guest
+    password: guest
+    virtual-host: /
   data:
     redis:
       host: 192.168.202.134
@@ -17,9 +23,6 @@ spring:
 mybatis-plus:
   configuration:
     map-underscore-to-camel-case: true
-jwt:
-  secret: dx-smart-teaching-assiatant-secret
-  expiration: 86400000
 springdoc:
   swagger-ui:
     path: /swagger-ui.html

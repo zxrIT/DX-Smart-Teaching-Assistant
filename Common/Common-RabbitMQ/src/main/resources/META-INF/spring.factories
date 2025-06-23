@@ -1,2 +1,2 @@
 org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
-  com.common.redis.service.RedisService
+  com.common.rabbitmq.configuration.MessageConverterConfiguration

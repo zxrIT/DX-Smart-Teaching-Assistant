@@ -31,6 +31,13 @@ services:
     networks:
       - elk-net
 
+  rabbitmq:
+    image: rabbitmq:management
+    ports:
+      - "15672:15672"
+      - "5672:5672"
+    restart: unless-stopped
+
 networks:
   elk-net:
     driver: bridge

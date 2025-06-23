@@ -1,7 +1,17 @@
 spring:
+  rabbitmq:
+    host: 127.0.0.1
+    port: 5672
+    username: guest
+    password: guest
+    virtual-host: /
   cloud:
     gateway:
       routes:
+        - id: authentication-service
+          uri: lb://authentication-service
+          predicates:
+            - Path=/authentication/**
 dx:
   smart:
     teaching:

@@ -29,6 +29,7 @@
         <commons-pool2.version>2.11.1</commons-pool2.version>
         <mysql-connection-j.version>8.0.33</mysql-connection-j.version>
         <hutool-all.version>5.8.22</hutool-all.version>
+        <logstash-logback-encoder.version>8.1</logstash-logback-encoder.version>
         <jjwt.version>0.12.4</jjwt.version>
         <dynamic-datasource-spring-boot3-starter.version>4.1.0</dynamic-datasource-spring-boot3-starter.version>
         <spring-cloud-starter-bootstrap.version>4.0.0</spring-cloud-starter-bootstrap.version>

@@ -1,0 +1,4 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+com.common.component.aspect.HttpRequestLoggerAspect\
+com.common.component.exception.GlobalExceptionHandler\
+com.common.component.component.TokenManager

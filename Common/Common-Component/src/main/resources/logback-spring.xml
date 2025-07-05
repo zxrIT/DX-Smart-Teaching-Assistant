@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration>
+<configuration>
+    <include resource="org/springframework/boot/logging/logback/defaults.xml"/>
+    <include resource="org/springframework/boot/logging/logback/console-appender.xml"/>
+    <springProfile name="default">
+        <property name="APP_NAME" value="DX-Smart-Teaching-Assistant"/>
+        <property name="LOG_FILE_PATH"
+                  value="/Users/zengxiangrui/DistributedProject/DX-Smart-Teaching-Assistant/server/logs"/>
+    </springProfile>
+    <contextName>${APP_NAME}</contextName>
+    <appender name="LOGSTASH" class="net.logstash.logback.appender.LogstashTcpSocketAppender">
+        <destination>127.0.0.1:4560</destination>
+        <encoder charset="UTF-8" class="net.logstash.logback.encoder.LogstashEncoder"/>
+    </appender>
+    <root level="info">
+        <appender-ref ref="CONSOLE"/>
+        <appender-ref ref="LOGSTASH"/>
+    </root>
+</configuration>

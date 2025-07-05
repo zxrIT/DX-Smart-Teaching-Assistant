@@ -1,4 +1,15 @@
 spring:
+  rabbitmq:
+    host: 127.0.0.1
+    port: 5672
+    username: guest
+    password: guest
+    virtual-host: /
+  data:
+    redis:
+      host: 192.168.202.134
+      password: root1234
+      port: 6379
   datasource:
     dynamic:
       primary: master_user
@@ -7,14 +18,11 @@ spring:
         master_user:
           username: root
           password: root1234
-          url: jdbc:mysql://127.0.0.1/student_course_select?characterEncoding=UTF-8&serverTimezone=Asia/Shanghai
+          url: jdbc:mysql://127.0.0.1/dx_smart_user?characterEncoding=UTF-8&serverTimezone=Asia/Shanghai
           driver-class-name: com.mysql.cj.jdbc.Driver
 mybatis-plus:
   configuration:
     map-underscore-to-camel-case: true
-jwt:
-  secret: dx-smart-teaching-assiatant-secret
-  expiration: 86400000
 springdoc:
   swagger-ui:
     path: /swagger-ui.html
